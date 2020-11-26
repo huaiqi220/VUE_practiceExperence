@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"> </script>
+    <link rel="stylesheet" type="text/css" href="index.css">
+</head>
+<body>
+    <div id="app">
+        <!--<my-component>-->
+        <div id="panel">
+            <onepage v-show="show1"></onepage>
+            <twopage v-show="show2"></twopage>
+            <threepage v-show="show3"></threepage>
+            <botton></botton>
+
+        </div>
+
+
+<!--            <twopage v-show="show2"></twopage>
+            <threepage v-show="show3"></threepage>-->
+        <!--</my-component>-->
+
+
+    </div>
+    <script src="component.js"></script>
+    <script src="index.js"></script>
+
+
+</body>
+</html>
