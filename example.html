@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>示例</title>
+</head>
+<body>
+    <div id="app">
+       <!-- <span v-html="link"></span>
+        &lt;!&ndash;<p v-if="show">显示这段文本</p>&ndash;&gt;
+        <a v-bind:href="url">链接</a>
+        <img v-bind:src="imgUrl">-->
+<!--        <p v-if="show">这是一段文本</p>
+        <button v-on:click="handleClose">点击隐藏</button>-->
+
+
+
+    </div>
+
+    <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+    <script>
+        var app = new Vue({
+            el:'#app',
+            data: {
+                /*show: true//给元素赋值不需要添加引号*/
+                /* url:'https://www.baidu.com',
+                 imgUrl:'https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png'*/
+                /*link:'<a href="#" >这是一个连接</a>'*/
+                /* show: true*/
+
+
+            }
+/*            methods:{
+                handleClose:function (){
+                    this.close();//调用方法要加括号
+                },
+                close: function (){
+                    this.show = false;//调用元素不加括号
+                }
+            }*/
+
+           /* mounted:function (){
+                var _this = this;
+                this.timer = setInterval(function (){
+                    _this.date = new Date();
+
+                },1000);
+            },
+
+            beforeDestroy:function (){
+                if(this.timer){
+                    clearInterval(this.timer);
+                }
+            }*/
+        })
+    </script>
+</body>
+</html>

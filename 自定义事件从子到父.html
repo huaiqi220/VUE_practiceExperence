@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <!--父组件用$omn()
+        子组件用$emit-->
+
+    <!--父组件在子组件上添加v-on来监听子组件触发的自定义事件-->
+
+    <!--代码很难理解，逻辑优点复杂，这个例子要多看看-->
+
+    <div id="app">
+        <p>总数:{{total}}</p>
+        <my-compoment
+            @increase="handleGetTotal"
+            @reduce="handleGetTotal"></my-compoment>
+    </div>
+    <script>
+        Vue.component('my-compoment',{
+            template:'\
+            <div>\
+                <button @click="handleIncrease">+1</button>\
+                <button @click="handleReduce">-1</button>\
+            </div>',
+
+            data: function () {
+                return{
+                    counter:0
+                }
+            },
+
+            methods:{
+                handleIncrease: function () {
+                    this.counter++;
+                    this.$emit('increase',this.counter);
+                },
+                handleReduce: function () {
+                    this.counter--;
+                    this.$emit('reduce',this.counter);
+                }
+            }
+        });
+
+        var app = new Vue({
+            el:'#app',
+            data:{
+                total:0
+            },
+            methods:{
+                handleGetTotal: function (receive) {
+                    this.total = receive;
+                }
+            }
+        })
+    </script>
+</body>
+</html>

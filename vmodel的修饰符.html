@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <input type="text" v-model.number="message">
+        <br>
+        <p>当前message为：{{ typeof message}}</p>
+    </div>
+    <script>
+        var app = new Vue({
+            el:'#app',
+            data:{
+                message:'124'
+            }
+        })
+    </script>
+</body>
+</html>
+
+<!--。lazy只在change时间中才同步我们的数据
+    简言之，回车或者失焦
+    .number会把我们输入框输入的123（String)转换为123(number)
+    。trim会把我们输入的字符首尾的空格去掉-->

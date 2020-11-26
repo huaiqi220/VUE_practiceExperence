@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <p>总数：{{total}}</p>
+        <my-compoment v-model="total"></my-compoment>
+
+    </div>
+    <script>
+        Vue.component('my-compoment',{
+            template:'<button @click="handleClick">+1</button>',
+            data: function () {
+                return {
+                    counter:0
+                }
+            },
+            methods:{
+                handleClick: function () {
+                    this.counter++;
+                    /*在这里$emit对象input是一个特殊方法，用于数据传递用，
+                    *   使用此种方法时，父组件必须用Vmodel绑定一个变量
+                    *   这个变量用来承接$emit发送的数据*/
+                    this.$emit('input',this.counter);
+                }
+            }
+        });
+
+        var app = new Vue({
+            el:'#app',
+            data:{
+                total:0
+            }
+        })
+    </script>
+</body>
+</html>

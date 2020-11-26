@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <my-compoment></my-compoment>
+        <my-compoment></my-compoment>
+        <my-compoment><</my-compoment>
+
+
+    </div>
+
+
+    <script>
+    var data = {
+        counter:0
+    };
+
+    Vue.component('my-compoment',{
+        template: '<button @click="counter++">{{counter}}</button>',
+        data:function (){
+            return data;
+        }
+    });
+
+    var app = new Vue({
+        el:'#app',
+    })
+    </script>
+</body>
+</html>

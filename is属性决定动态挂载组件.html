@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <component v-bind:is="currentView"></component>
+        <button @click="handleChangeView('A')">切换到A组件</button>
+        <button @click="handleChangeView('B')">切换到B组件</button>
+        <button @click="handleChangeView('C')">切换到C组件</button>
+    </div>
+    <script>
+        var app =new Vue({
+            el:'#app',
+            components:{
+                comA:{
+                    template:'<div>组件A</div>'
+                },
+                comB:{
+                    template:'<div>组件B</div>'
+                },
+                comC:{
+                    template:'<div>组件C</div>'
+                }
+            },
+            data:{
+                currentView:'comA'
+            },
+            methods:{
+                handleChangeView: function (component) {
+                    this.currentView = 'com'+component;
+                }
+            }
+        })
+    </script>
+</body>
+</html>

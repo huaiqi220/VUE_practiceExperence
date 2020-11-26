@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <a href="http://www.apple.com" @click.ctrl="handleClick('禁止打开',$event)">跳转网站</a>
+
+    </div>
+
+    <script>
+        var app = new Vue({
+            el:'#app',
+            methods:{
+                handleClick: function (message, event) {
+                    event.preventDefault();
+                    window.alert(message)
+
+
+
+                }
+            }
+        })
+    </script>
+
+
+</body>
+</html>

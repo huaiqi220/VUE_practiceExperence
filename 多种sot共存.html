@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <child-component>
+            <h2 slot="header">标题</h2>
+            <p>正文内容1</p>
+            <p>正文内容2</p>
+            <div slot="footer">底部信息</div>
+        </child-component>
+    </div>
+
+
+
+    <script>
+        Vue.component({
+            template:'<div class="container">\n' +
+                '        <div class="header">\n' +
+                '            <slot name="header"></slot>\n' +
+                '        </div>\n' +
+                '        <div class="main">\n' +
+                '            <slot></slot>\n' +
+                '        </div>\n' +
+                '        <div class="footer">\n' +
+                '            <slot name="footer"></slot>\n' +
+                '        </div>\n' +
+                '    </div>'
+        });
+        var app =new Vue({
+            el:'#app'
+        })
+
+        /*指定name的slot内容转发到相应的name中去
+        *   未具名的slot为默认slot
+        *   如果没有默认的匿名slot，父组件中的多余内容会被抛弃*/
+    </script>
+</body>
+</html>

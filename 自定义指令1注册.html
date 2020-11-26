@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <input type="text" v-focus>
+    </div>
+    <script>
+        /*全局注册*/
+        Vue.directive('focus',{
+            /*指令选项*/
+            /*bind:只调用一次
+            inserted插入父节点时调用
+            update模板更新时调用
+            componentUpdated模板完成一次更新周期时调用
+            unbind只调用一次，解绑时调用
+            * */
+            inserted: function (el) {
+                /*el代表指令绑定的元素，可以直接用来操作DOM
+                *   binding对象name指令名
+                *       value指令的绑定值
+                *       expression绑定值的字符串形式
+                *   vnode编译生成的虚拟节点
+                *   */
+                el.focus();
+            }
+        });
+        /*局部注册*/
+        var app = new Vue({
+            el:'#app',
+/*            directives:{
+                focus:{
+                    /!*指令选项*!/
+                }
+            }*/
+        })
+
+    </script>
+</body>
+</html>

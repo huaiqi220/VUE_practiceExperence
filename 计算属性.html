@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+        <div id="app">
+
+<!--            <div :class="[activeCls,errorCls]"></div>-->
+<!--                <div :style="{'color':color,'fontSize':fontSize+'px'}">这是一段文本</div>-->
+           <!-- //:=v-bond.修改标签属性，在这个例子通过绑定可以动态调整style里的color和size-->
+
+        </div>
+        <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+
+        <script>
+                var app = new Vue({
+                    el:'#app',
+
+                    data:{
+/*                        color:'red',
+                        fontSize:54*/
+/*                        activeCls:'active',
+                        errorCls:'error'*/
+
+                    }
+                })
+
+
+        </script>
+<!--
+
+        <script>
+            var app =new Vue({
+                el:'#app',
+
+                data:{
+                    package1:[
+                        {
+                            name:'iphone 7',
+                            price:7199,
+                            count:2
+                        },
+                        {
+                            name:'ipad',
+                            price:2888,
+                            count:1
+                        },
+
+                    ],
+                    package2:[
+                        {
+                            name:'apple',
+                            price:3,
+                            count:5
+                        },
+                        {
+                            name:'banana',
+                            price: 2,
+                            count: 10
+                        }
+                    ]
+                },
+                computed:{
+                    prices:function (){
+                        var prices = 0;
+                        for(var i = 0;i<this.package1.length;i++){
+                            prices += this.package1[i].price*this.package1[i].count;
+                        }
+                        for(var i = 0;i<this.package2.length;i++){
+                            prices += this.package2[i].price*this.package2[i].count;
+                        }
+                        return prices;
+
+                    }
+                }
+            })
+        </script>
+
+
+-->
+
+
+
+</body>
+
+</html>

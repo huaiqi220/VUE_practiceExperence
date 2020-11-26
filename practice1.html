@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+<!--
+        <span v-once>{{message}}</span>
+        <div v-once>
+            <span>{{message}}</span>
+
+        </div>
+
+-->
+<!--
+        <p v-if="status==1">当status为1显示这一行</p>
+        <p v-else-if="status==2">当status为2显示这一行</p>
+        <p v-else>否则显示这一行</p>
+-->
+        <template v-if="type === 'name'">
+            <label>用户名：</label>
+            <input placeholder="输入用户名" key="name-input">
+
+
+        </template>
+        <template v-else>
+            <label>邮箱：</label>
+            <input placeholder="请输入邮箱" keyt="email-input">
+
+        </template>
+        <button @click="handleToggleClick">{{message}}</button>
+    </div>
+    <script>
+        var app = new Vue({
+            el:'#app',
+            data:{
+                type:'name',
+                message:'切换输入邮箱'
+/*                status:3*/
+/*                message:'这是一段文本'*/
+            },
+            methods:{
+                handleToggleClick:function (){
+                    this.type = this.type === 'name' ? 'email':'name';
+                    this.message = this.message === '切换输入邮箱' ? '切换输入账号':'切换输入邮箱'
+                }
+            }
+/*            mounted:function (){
+                this.message='这是一段文本2'
+            }*/
+        })
+    </script>
+
+</body>
+</html>

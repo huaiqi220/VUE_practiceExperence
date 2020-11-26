@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+<body>
+    <div id="app">
+        点击次数:{{counter}}
+        <button v-on:click="counter++">+1</button>
+        <!--v-on语句里面可以写js代码，也可以调用方法-->
+        <button v-on:click="handleAdd(10)">+10</button>
+    </div>
+
+
+    <!--v-on可以简写为@-->
+    <script>
+        new Vue({
+            el:'#app',
+            data:{
+                counter:0
+            },
+            /*method通常与data并列，写在vue实例的里面*/
+            methods:{
+                handleAdd:function (count){
+                    console.log(count)
+                    count = count || 1;
+                    this.counter += count;
+                }
+            }
+        })
+    </script>
+
+</body>
+</html>

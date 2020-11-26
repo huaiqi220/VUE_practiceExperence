@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+
+    <!--使用props在父子组件中传递活动数据
+    其中用到v-bind进行数据与标签的绑定-->
+    <div id="app">
+        <input type="text"v-model="parentMessage">
+<!--        <my-compoment message="来自父亲组件的数据"></my-compoment>-->
+        <my-compoment v-bind:warning-text="parentMessage"></my-compoment>
+
+    </div>
+    <script>
+        Vue.component('my-compoment',{
+            /*props:['message'],*/
+            props:['warningText'],
+            /*template:'<div>{{message}}</div>'*/
+            template:'<div>{{warningText}}</div>'
+        });
+        var app = new Vue({
+            el:'#app',
+            data:{
+                parentMessage:''
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+</head>
+<body>
+    <div id="app">
+        <child-component>
+            <template scope="props">
+                <p>来自父组件的内容</p>
+                <p>{{props.msg}}</p>
+
+            </template>
+        </child-component>
+    </div>
+    <script>
+        /*这个案例中的props相当于临时变量，
+            从template组件的缓冲区中读取来自子组件的msg信息
+        * */
+        Vue.component('child-component',{
+            template:'' +
+                '<div class="container">' +
+                '<slot msg="来自子组件的内容"></slot>'+
+                '</div>'
+        });
+        var app = new Vue({
+            el:'#app'
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script><!--事实证明，书上写的有问题，这个Vue的引用必须放在头部-->
+</head>
+<body>
+    <div id="app">
+        <input type="checkbox" v-model="checked" value="html" id="html">
+        <label for="html" >html</label>
+        <br>
+        <input type="checkbox" v-model="checked" value="js" id="js">
+        <label for="js" >js</label>
+        <br>
+        <input type="checkbox" v-model="checked" value="css" id="css">
+        <label for="css">css</label>
+        <br>
+        <p>选择的项是{{checked}}</p>
+        <!--<input type="checkbox" v-model="checked" id="checked">
+        <label for="checked">选择状态：{{checked}}</label>-->
+        <!--<input type="text" v-model="message" placeholder="输入">
+        <P>输入的内容是：{{message}}</P>-->
+<!--        <input type="radio" v-model="picked" value="html" id="html">
+        <label for="html">html</label>
+        <br>
+        <input type="radio" v-model="picked" value="js" id="js">
+        <label for="js" >javascript</label>
+        <br>
+        <input type="radio" v-model="picked" value="css" id="css">
+        <label for="css">css</label>
+        <br>
+        <p>选择的项是{{picked}}</p>-->
+
+
+
+    </div>
+    <script>
+        var app = new Vue({
+            el:'#app',
+            data: {
+                picked:'js',
+                message:'',
+                checked:['html','css']
+            }
+        });
+    </script>
+
+
+
+
+</body>
+</html>

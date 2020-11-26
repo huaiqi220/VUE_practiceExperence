@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <my-compoment v-bind:width="1000"></my-compoment>
+
+    </div>
+    <script>
+        Vue.component('my-compoment',{
+            props:['width'],
+            template: '<div :style="style">组件内容</div>',
+            computed:{
+                /*计算属性中用到了props传递下来的数据*/
+                style:function (){
+                    return{
+                        width:this.width+'px'
+                    }
+                }
+            }
+
+        });
+
+        var app = new Vue({
+            el:'#app',
+
+        })
+    </script>
+</body>
+</html>

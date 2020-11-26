@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <table>
+            <tbody is="my-compoment"></tbody>
+        </table>
+    </div>
+
+
+
+    <script>
+
+        Vue.component('my-compoment',{
+            template:'<div>{{message}}</div>',
+            data:function (){
+                return {
+                    message:'组件内容'
+                }
+            }
+        });
+
+/*        var Child = {
+            template:'<div>这里是局部注册组件的内容</div>'
+        }*/
+
+        var app = new Vue({
+            el:'#app',
+/*            components:{
+                'my-compoment':Child
+            }*/
+        })
+    </script>
+</body>
+</html>

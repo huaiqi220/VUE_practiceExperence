@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div id="div" v-if="showDiv">这是一段文本</div>
+        <button v-on:click="getText">获取div内容</button>
+
+    </div>
+    <script>
+        var app =new Vue({
+            el:'#app',
+            data:{
+                showDiv:false
+            },
+            methods:{
+                getText: function () {
+                    this.showDiv = true;
+                    /*这里如果不加$nextTick就会报错
+                    *   原理与Vue根据数据变化更新DOM的原理有关
+                    *   简言之，即使数据已经更改，必须等到下一个Tick才会更新DOM*/
+                    this.$nextTick(function () {
+                        var text = document.getElementById('div').innerHTML;
+                        alert(text);
+                    });
+                }
+            }
+        })
+    </script>
+</body>
+</html>

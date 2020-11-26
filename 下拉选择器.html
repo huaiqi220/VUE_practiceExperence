@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <select v-model="selected"><!--有value值的时候就是匹配value，没有value值的时候就直接匹配选项的text-->
+            <option>html</option>
+            <option value="js">javascript</option>
+            <option>css</option>
+        </select>
+        <p>选择的项是：{{selected}}</p>
+    </div>
+
+    <script>
+        var app = new Vue({
+            el:'#app',
+            data:{
+                selected:'html'
+            }
+        })
+    </script>
+</body>
+</html>

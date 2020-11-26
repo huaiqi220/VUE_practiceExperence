@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <!--组件复用，尤其是给别人用时，需要最好在props中添加数据验证
+        好比如某个数据必须为数字，如果不是数字就会在控制台打印警告-->
+    <script>
+        Vue.component('my-compoment',{
+            props:{
+                propA:Number,
+
+                propB:[String,Number],
+
+                propC:{
+                    type:Array,
+                    default: function () {
+                        return[];
+                    }
+                },
+
+                propD:{
+                    type:Number,
+                    required:true
+                },
+
+                propE:{
+                    validator: function (value) {
+                        return value > 10;
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+</html>

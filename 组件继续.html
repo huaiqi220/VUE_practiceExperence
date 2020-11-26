@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <!--组件的常见用法
+    从父组件拷贝数据，新申请一个data进行承接，可以避免直接修改父亲的数据-->
+    <div id="app">
+        <my-compoment :init-count="1"></my-compoment>
+
+    </div>
+    <script>
+
+        Vue.component('my-compoment',{
+            props:['initCount'],
+            template:'<div>{{message}}</div>',
+            data:function (){
+                return {
+                    message:this.initCount
+                }
+            }
+        });
+        var app = new Vue({
+            el:'#app',
+        })
+    </script>
+</body>
+</html>
